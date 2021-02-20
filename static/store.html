@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="image-icon">
+    
+    <a href="{% url 'offer' %}">
+        <img id="offer-image" src="{% static 'images/main_offer.jpg' %}">
+    </a>
+    <h3>Offers Of The Day</h3>
+    
+</div>
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-lg-4">
+
+        <img class="thumbnail" src="{{product.imageURl}}">
+        <div class="box-element product">
+            
+            <hr>
+            
+            <a href="{% url 'checkout' %}" class="btn btn-success">Buy Now</a>
+            <a href="{% url 'cartes' %}" class="btn btn-outline-secondary add-btn">Add to cart</a>
+            
+            <a href="{% url 'cartes' %}" class="btn btn-success">View</a>
+            <h4 style="display: inline-block;"><strong>${{product.price|floatformat:2}}</strong></h4>
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+
+<div class="col-lg-412">
+    <div class="personal3">
+        <h3>Get to know about us..</h3>
+        <a href="#">about us</a>
+        <a href="#">careers</a>
+        <a href="#">press release</a>
+    </div>
+    <div class="personal3">
+        <h3>connect with us</h3>
+        <a href="#">about us</a>
+        <a href="#">careers</a>
+        <a href="#">press release</a>
+    </div>
+    <div class="personal3">
+        <h3>connect with us</h3>
+        <a href="#">about us</a>
+        <a href="#">careers</a>
+        <a href="#">press release</a>
+    </div>
+</div>
+
+{% endblock %}
